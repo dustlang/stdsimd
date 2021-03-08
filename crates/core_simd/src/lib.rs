@@ -10,6 +10,8 @@ mod first;
 mod permute;
 #[macro_use]
 mod transmute;
+#[macro_use]
+mod reduction;
 
 mod comparisons;
 mod fmt;
