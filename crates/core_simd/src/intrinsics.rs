@@ -60,4 +60,15 @@ extern "platform-intrinsic" {
     pub(crate) fn simd_shuffle16<T, U>(x: T, y: T, idx: [u32; 16]) -> U;
     pub(crate) fn simd_shuffle32<T, U>(x: T, y: T, idx: [u32; 32]) -> U;
     pub(crate) fn simd_shuffle64<T, U>(x: T, y: T, idx: [u32; 64]) -> U;
+
+    // reductions
+    pub(crate) fn simd_reduce_add_ordered<T, U>(x: T, y: U) -> U;
+    pub(crate) fn simd_reduce_mul_ordered<T, U>(x: T, y: U) -> U;
+    pub(crate) fn simd_reduce_all<T>(x: T) -> bool;
+    pub(crate) fn simd_reduce_any<T>(x: T) -> bool;
+    pub(crate) fn simd_reduce_max<T, U>(x: T) -> U;
+    pub(crate) fn simd_reduce_min<T, U>(x: T) -> U;
+    pub(crate) fn simd_reduce_and<T, U>(x: T) -> U;
+    pub(crate) fn simd_reduce_or<T, U>(x: T) -> U;
+    pub(crate) fn simd_reduce_xor<T, U>(x: T) -> U;
 }
