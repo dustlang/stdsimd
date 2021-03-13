@@ -480,7 +480,7 @@ macro_rules! impl_float_tests {
                     test_helpers::test_1(&|x| {
                         test_helpers::prop_assert_biteq! (
                             Vector::<LANES>::from_array(x).sum(),
-                            x.iter().sum(),
+                            x.iter().copied().fold(0 as Scalar, <Scalar as core::ops::Add>::add),
                         );
                         Ok(())
                     });
@@ -490,7 +490,7 @@ macro_rules! impl_float_tests {
                     test_helpers::test_1(&|x| {
                         test_helpers::prop_assert_biteq! (
                             Vector::<LANES>::from_array(x).product(),
-                            x.iter().product(),
+                            x.iter().copied().fold(1. as Scalar, <Scalar as core::ops::Mul>::mul),
                         );
                         Ok(())
                     });
